@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Gradient background for the body */
+        body {
+            background: linear-gradient(135deg, red, orange, yellow, green, blue, indigo, violet);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        /* Container styling */
+        .container {
+            background-color: rgba(255, 255, 255, 0.85); /* Light background for contrast */
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #333; /* Darker text color for better readability */
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 3rem;
+            color: #333; /* Dark text for strong contrast */
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #555; /* Slightly lighter text for the paragraph */
+        }
+
+        /* Button styling */
+        .btn-analysis {
+            background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        /* Loader styling */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            display: none; /* Hidden by default */
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Result message styling */
+        .result-message {
+            display: none;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Analysis Home</title>
+</head>
+<body>
+
+    <div class="container text-center">
+        <h1>Welcome to Gay Analysis App</h1>
+        <p>This is the analysis homepage.</p>
+        <button class="btn-analysis" id="analyzeButton" onclick="startAnalysis()">Run Analysis</button>
+        
+        <!-- Loader animation -->
+        <div class="loader" id="loader"></div>
+        
+        <!-- Result message -->
+        <p class="result-message" id="resultMessage"></p>
+    </div>
+
+    <script>
+        function startAnalysis() {
+            // Hide previous results and show the loader
+            document.getElementById('resultMessage').style.display = 'none';
+            document.getElementById('loader').style.display = 'block';
+
+            // Disable the button while analysis is in progress
+            document.getElementById('analyzeButton').disabled = true;
+
+            // Simulate a delay for the analysis process (2 seconds)
+            setTimeout(runAnalysis, 2000);
+        }
+
+        function runAnalysis() {
+            // Hide the loader
+            document.getElementById('loader').style.display = 'none';
+
+            // Generate a random analysis result (mock)
+            let analysisResult = Math.random() < 0.5 ? 'No issues detected!' : 'Potential issues detected. Please review.';
+
+            // Display the result
+            document.getElementById('resultMessage').textContent = 'Analysis Result: ' + analysisResult;
+            document.getElementById('resultMessage').style.display = 'block';
+
+            // Re-enable the button
+            document.getElementById('analyzeButton').disabled = false;
+        }
+    </script>
+
+</body>
+</html>

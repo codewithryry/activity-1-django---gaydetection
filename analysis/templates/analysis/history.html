@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Analysis History</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, red, orange, yellow, green, blue, indigo, violet);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+        h1 {
+            font-weight: bold;
+            font-size: 3rem;
+            color: #333;
+        }
+        table {
+            margin-top: 20px;
+        }
+        th {
+            background-color: #f8f9fa; /* Light header for table */
+            color: #333; /* Dark text */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container text-center">
+        <h1>Analysis History</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Date</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2024-10-01</td>
+                    <td>Positive</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2024-10-05</td>
+                    <td>Negative</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>2024-10-10</td>
+                    <td>Positive</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/analysis/" class="btn btn-primary mt-4">Back to Analysis</a>
+    </div>
+
+</body>
+</html>

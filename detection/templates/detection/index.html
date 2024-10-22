@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Gradient background for the body */
+        body {
+            background: linear-gradient(135deg, red, orange, yellow, green, blue, indigo, violet);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        /* Container with a solid white background */
+        .container {
+            background-color: rgba(255, 255, 255, 0.85); /* Light background for contrast */
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #333; /* Darker text color for better readability */
+        }
+
+        /* Solid color text for the heading */
+        h1 {
+            font-weight: bold;
+            font-size: 3rem;
+            color: #333; /* Dark text for strong contrast */
+        }
+
+        /* Simple text styling */
+        p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #555; /* Slightly lighter text for the paragraph */
+        }
+
+        /* Button styling */
+        .btn-rainbow {
+            background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover effect for the button */
+        .btn-rainbow:hover {
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Loader styling */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            display: none;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Message styling */
+        .result-message {
+            display: none;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Detection Home</title>
+</head>
+<body>
+
+    <div class="container text-center">
+        <h1>Welcome to Gay Detection App</h1>
+        <p>This is the detection homepage.</p>
+        <button class="btn-rainbow" id="detectButton" onclick="startDetection()">Run Detection</button>
+        
+        <!-- Loader animation -->
+        <div class="loader" id="loader"></div>
+        
+        <!-- Result message -->
+        <p class="result-message" id="resultMessage"></p>
+    </div>
+
+    <script>
+        function startDetection() {
+            // Hide previous results and show the loader
+            document.getElementById('resultMessage').style.display = 'none';
+            document.getElementById('loader').style.display = 'block';
+
+            // Disable the button while "detection" is in progress
+            document.getElementById('detectButton').disabled = true;
+
+            // Simulate a delay for the detection process (2 seconds)
+            setTimeout(runDetection, 2000);
+        }
+
+        function runDetection() {
+            // After detection, hide the loader
+            document.getElementById('loader').style.display = 'none';
+
+            // Generate a random detection result (mock)
+            let detectionResult = Math.random() < 0.5 ? 'Negative!' : 'Positive!';
+
+            // Display the result
+            document.getElementById('resultMessage').textContent = 'Detection Result: ' + detectionResult;
+            document.getElementById('resultMessage').style.display = 'block';
+
+            // Re-enable the button
+            document.getElementById('detectButton').disabled = false;
+        }
+    </script>
+
+</body>
+</html>
